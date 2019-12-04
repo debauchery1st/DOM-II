@@ -42,13 +42,12 @@ window.addEventListener('wheel', (event) => {
     navContainer.style.backgroundColor = randomColor();
 });
 
-//[5] DRAGGING
+//[5, 6] DRAGGING, DBLCLICK
 imageCollection.forEach((img) => {
     // click and drag to scale down image.
     // hold down the ctrl key while dragging to scale up.
-    img.addEventListener('drag', (event) => {
-        img.width += (img.width < 25) ? 10:(event.ctrlKey) ? 10:-10;
-    });
+    img.addEventListener('drag', (event) => img.width += (img.width < 25) ? 10:(event.ctrlKey) ? 10:-10);
+    img.addEventListener('dblclick', (event) => img.width += (img.width < 25) ? 50:(event.ctrlKey) ? 50:-50);
 });
 
 function randomColor() {
